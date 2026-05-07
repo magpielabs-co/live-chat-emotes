@@ -1,0 +1,181 @@
+/* Inline emotes in chat messages.
+   Height is driven by --ytce-emote-size on :root so that updating the popup
+   setting resizes already-rendered emotes (and in-input emote wrappers) live.
+   The hard cap exists as defence-in-depth in case the variable is ever set
+   to something unreasonable by tampered storage. */
+.ytce-emote {
+  display: inline-block;
+  margin: 0 1px;
+  vertical-align: middle;
+  object-fit: contain;
+  height: var(--ytce-emote-size, 19px);
+  width: auto;
+  max-height: 64px;
+}
+
+/* -------- Inline emotes inside the chat INPUT field -------- */
+/* The wrapper is contenteditable=false so the browser treats it as a single
+   editing unit (Backspace deletes it whole, caret can't land inside). */
+.ytce-input-emote {
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin: 0 1px;
+  user-select: none;
+}
+
+.ytce-input-emote img {
+  display: inline-block;
+  vertical-align: middle;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* -------- Autocomplete dropdown -------- */
+
+.ytce-autocomplete {
+  position: fixed;
+  z-index: 2147483647;
+  background: var(--yt-live-chat-background-color, #fff);
+  /* The chat iframe doesn't expose --yt-spec-text-primary, so prefer the
+     live-chat-scoped variable that follows YouTube's dark/light mode. */
+  color: var(--yt-live-chat-primary-text-color, var(--yt-spec-text-primary, #0f0f0f));
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 4px 0;
+  min-width: 200px;
+  max-width: 320px;
+  max-height: 240px;
+  overflow-y: auto;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  font-size: 13px;
+  user-select: none;
+}
+
+.ytce-autocomplete-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.ytce-autocomplete-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.ytce-autocomplete-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ytce-autocomplete-item.ytce-selected,
+.ytce-autocomplete-item:hover {
+  background: rgba(128, 128, 128, 0.18);
+}
+
+/* -------- Picker button -------- */
+
+.ytce-picker-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: inherit;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0.75;
+  transition: opacity 0.12s ease;
+}
+
+.ytce-picker-button:hover {
+  opacity: 1;
+}
+
+/* -------- Picker panel -------- */
+
+.ytce-picker-panel {
+  position: fixed;
+  z-index: 2147483647;
+  background: var(--yt-live-chat-background-color, #fff);
+  color: var(--yt-live-chat-primary-text-color, var(--yt-spec-text-primary, #0f0f0f));
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  max-height: 380px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  font-size: 13px;
+}
+
+.ytce-picker-search {
+  padding: 8px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  flex-shrink: 0;
+}
+
+.ytce-picker-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+
+.ytce-picker-search input:focus {
+  border-color: #1976d2;
+}
+
+.ytce-picker-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  gap: 4px;
+  padding: 8px;
+}
+
+.ytce-picker-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  min-height: 44px;
+  cursor: pointer;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+  color: inherit;
+}
+
+.ytce-picker-tile:hover {
+  background: rgba(128, 128, 128, 0.2);
+}
+
+.ytce-picker-tile img {
+  max-width: 32px;
+  max-height: 32px;
+  object-fit: contain;
+}
+
+.ytce-picker-empty {
+  grid-column: 1 / -1;
+  padding: 16px;
+  text-align: center;
+  opacity: 0.6;
+}

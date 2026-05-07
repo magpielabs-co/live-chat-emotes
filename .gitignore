@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.vite/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+coverage/
+# Vite drops these next to the config during builds.
+*.timestamp-*.mjs

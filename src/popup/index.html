@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>YouTube 7TV Chat Emotes</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <header class="hdr">
+      <h1>7TV Chat Emotes</h1>
+      <p class="sub">Render 7TV emotes in YouTube live chat.</p>
+    </header>
+
+    <section class="card">
+      <div class="row">
+        <label for="setId">7TV emote set</label>
+        <input id="setId" type="text" spellcheck="false" autocomplete="off" placeholder="e.g. 01JF67B2AKMAFGCW334QYN9P4N" />
+        <p class="hint">
+          Paste the ID from <code>7tv.app/emote-sets/<em>ID</em></code>.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="row-head">
+          <label for="size">Emote size</label>
+          <span class="size-readout"><span id="sizeValue">19</span><span class="muted">&nbsp;px</span></span>
+        </div>
+        <div class="size-controls">
+          <input id="sizeRange" type="range" min="16" max="48" step="1" />
+          <input id="size" type="number" min="16" max="48" step="1" inputmode="numeric" />
+        </div>
+      </div>
+
+      <div class="row row-checkbox">
+        <label><input id="enabled" type="checkbox" /><span>Extension enabled</span></label>
+      </div>
+
+      <div class="row row-checkbox">
+        <label><input id="autocomplete" type="checkbox" /><span>Autocomplete on <code>:</code></span></label>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button id="reload" type="button">Reload emotes</button>
+    </div>
+
+    <div id="status" class="status">Loading…</div>
+
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>
