@@ -9,3 +9,6 @@ Thumbs.db
 coverage/
 # Vite drops these next to the config during builds.
 *.timestamp-*.mjs
+PLAN.md
+NOTES.md
+.idea/
