@@ -180,8 +180,4 @@ export function attachPicker(
   }
 
   return () => {
-    closePanel();
-    button?.remove();
-    button = null;
-  };
-}
+    closeP

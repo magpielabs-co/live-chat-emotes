@@ -2,7 +2,7 @@
   <img src="src/assets/icons/icon.svg" alt="Live Chat Emotes" width="128" height="128">
 </p>
 
-<h1 align="center">Live Chat Emotes (7TV)</h1>
+<h1 align="center">Live Chat Emotes</h1>
 
 <p align="center">
   Renders 7TV emotes in YouTube live chat, with <code>:</code>-triggered autocomplete and an emote picker next to the chat input.
@@ -60,6 +60,8 @@ That's it. No analytics, no error reporting, no third-party trackers, no remote 
 
 Settings (your chosen emote set ID, size preference, on/off toggles) are stored locally via `chrome.storage.local` and never leave your machine.
 
+The full privacy policy is in [PRIVACY.md](./PRIVACY.md), and the security model and reporting process are documented in [SECURITY.md](./SECURITY.md).
+
 ## Development
 
 ```sh
@@ -92,4 +94,4 @@ This extension is not affiliated with, endorsed by, or sponsored by 7TV or YouTu
 
 ## License
 
-A LICENSE file will be added before the v1.0.0 Chrome Web Store submission. Until then, all rights reserved by default — but the intent is permissive open-source (likely MIT). If you want to use this code before the LICENSE lands, open an issue and I'll fast-track it.
+Released under the [MIT License](./LICENSE).

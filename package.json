@@ -1,6 +1,6 @@
 {
   "name": "youtube-chat-emotes",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "Renders 7TV emotes in YouTube live chat.",
   "private": true,
   "type": "module",
