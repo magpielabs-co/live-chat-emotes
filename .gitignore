@@ -1,5 +1,6 @@
 node_modules/
 dist/
+dist-firefox/
 .vite/
 .DS_Store
 Thumbs.db
@@ -12,3 +13,4 @@ coverage/
 PLAN.md
 NOTES.md
 .idea/
+*.zip
